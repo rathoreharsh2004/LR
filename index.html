@@ -1,24 +1,18 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>LR Furniture & Interiors | Interior Design & Custom Furniture</title>
+<title>LR Furniture & Interiors | Luxury Interior Design</title>
 
 <meta name="description"
-content="LR Furniture & Interiors creates refined residential and commercial interiors, custom furniture and thoughtfully designed spaces.">
+content="LR Furniture & Interiors creates elegant residential interiors, custom furniture, modular kitchens, bedrooms, living spaces and complete interior solutions.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-
-<!-- Font Awesome for recognizable Call / WhatsApp / Instagram icons -->
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -27,33 +21,22 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 ========================================================= */
 
 :root{
-
-    --cream:#f5f1e9;
-    --cream-light:#faf8f3;
+    --bg:#f6f3ed;
+    --cream:#fbfaf7;
+    --dark:#171614;
+    --dark2:#211f1b;
+    --brown:#7a6048;
+    --gold:#b18a5b;
+    --text:#292722;
+    --muted:#77736c;
     --white:#ffffff;
+    --line:rgba(23,22,20,.12);
 
-    --brown:#8b6b4d;
-    --brown-dark:#634a34;
+    --serif:"Playfair Display",serif;
+    --sans:"DM Sans",sans-serif;
 
-    --charcoal:#1d1c19;
-    --text:#69645d;
-    --muted:#999187;
-
-    --border:#e6dfd4;
-
-    --gold:#b29367;
-
-    --shadow:
-        0 25px 70px rgba(38,30,21,.10);
-
-    --container:1200px;
-
+    --container:1240px;
 }
-
-
-/* =========================================================
-   RESET
-========================================================= */
 
 *{
     margin:0;
@@ -66,9 +49,9 @@ html{
 }
 
 body{
-    font-family:"DM Sans",sans-serif;
+    background:var(--bg);
     color:var(--text);
-    background:var(--cream-light);
+    font-family:var(--sans);
     overflow-x:hidden;
 }
 
@@ -84,9 +67,8 @@ a{
 
 button,
 input,
-textarea,
-select{
-    font:inherit;
+textarea{
+    font-family:inherit;
 }
 
 .container{
@@ -94,679 +76,2910 @@ select{
     margin:auto;
 }
 
+section{
+    position:relative;
+    overflow:hidden;
+}
+
+.serif{
+    font-family:var(--serif);
+}
 
 /* =========================================================
-   TYPOGRAPHY
+   PRELOADER
 ========================================================= */
 
-h1,
-h2,
-h3,
-h4{
-    font-family:"Playfair Display",serif;
-    color:var(--charcoal);
-}
-
-h2{
-    font-size:clamp(38px,5vw,66px);
-    line-height:1.04;
-    letter-spacing:-1.5px;
-}
-
-p{
-    line-height:1.8;
-}
-
-.section{
-    padding:120px 0;
-}
-
-.section-light{
-    background:var(--cream-light);
-}
-
-.section-dark{
-    background:var(--charcoal);
-}
-
-.section-head{
-    max-width:720px;
-    margin-bottom:60px;
-}
-
-.kicker{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-
-    color:var(--brown);
-
-    font-size:12px;
-    font-weight:700;
-
-    letter-spacing:2.2px;
-    text-transform:uppercase;
-
-    margin-bottom:17px;
-}
-
-.kicker::before{
-    content:"";
-    width:32px;
-    height:1px;
-    background:var(--brown);
-}
-
-
-/* =========================================================
-   BUTTONS
-========================================================= */
-
-.btn{
-    min-height:54px;
-
-    padding:0 27px;
-
-    display:inline-flex;
+.preloader{
+    position:fixed;
+    inset:0;
+    background:var(--dark);
+    z-index:9999;
+    display:flex;
     align-items:center;
     justify-content:center;
-
-    gap:10px;
-
-    border-radius:100px;
-
-    font-size:13px;
-    font-weight:700;
-
-    cursor:pointer;
-
-    transition:
-        background .3s ease,
-        color .3s ease,
-        transform .25s ease,
-        box-shadow .3s ease;
-
-    will-change:transform;
+    transition:.8s ease;
 }
 
-.btn-dark{
-    background:var(--charcoal);
-    color:white;
-
-    box-shadow:
-        0 12px 30px rgba(0,0,0,.13);
+.preloader.hide{
+    opacity:0;
+    visibility:hidden;
 }
 
-.btn-dark:hover{
-    background:var(--brown-dark);
+.loader-logo{
+    text-align:center;
+    color:#fff;
 }
 
-.btn-light{
-    background:white;
-    color:var(--charcoal);
+.loader-logo span{
+    display:block;
+    font-family:var(--serif);
+    font-size:34px;
+    letter-spacing:2px;
 }
 
-.btn-outline{
-    border:1px solid rgba(255,255,255,.5);
-    color:white;
-    background:rgba(255,255,255,.08);
-
-    backdrop-filter:blur(12px);
+.loader-line{
+    width:140px;
+    height:1px;
+    background:rgba(255,255,255,.25);
+    margin:18px auto;
+    position:relative;
+    overflow:hidden;
 }
 
-
-/* =========================================================
-   TOP BAR
-========================================================= */
-
-.topbar{
-    background:var(--charcoal);
-    color:#ddd6ca;
-
-    font-size:12px;
+.loader-line:after{
+    content:"";
+    position:absolute;
+    left:-100%;
+    top:0;
+    width:100%;
+    height:100%;
+    background:var(--gold);
+    animation:load 1.4s infinite;
 }
 
-.topbar-inner{
-    min-height:38px;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+@keyframes load{
+    to{left:100%}
 }
-
-.topbar-right{
-    display:flex;
-    gap:25px;
-}
-
 
 /* =========================================================
    NAVBAR
 ========================================================= */
 
 .navbar{
-    position:sticky;
+    position:fixed;
     top:0;
-
+    left:0;
+    width:100%;
     z-index:1000;
-
-    background:rgba(250,248,243,.94);
-
-    backdrop-filter:blur(18px);
-
-    border-bottom:1px solid rgba(230,223,212,.8);
-
-    transition:.3s ease;
+    padding:20px 0;
+    transition:.35s ease;
 }
 
 .navbar.scrolled{
-    box-shadow:
-        0 12px 35px rgba(0,0,0,.08);
+    background:rgba(23,22,20,.94);
+    backdrop-filter:blur(14px);
+    padding:13px 0;
+    box-shadow:0 8px 30px rgba(0,0,0,.15);
 }
 
 .nav-inner{
-    height:82px;
-
     display:flex;
     align-items:center;
     justify-content:space-between;
-
-    gap:30px;
 }
-
-
-/* LOGO */
 
 .logo{
-    display:flex;
-    align-items:center;
-    gap:12px;
+    color:#fff;
+    font-family:var(--serif);
+    font-size:25px;
+    letter-spacing:1px;
+    font-weight:600;
 }
 
-.logo-mark{
-
-    width:44px;
-    height:44px;
-
-    border:1px solid var(--brown);
-
-    display:grid;
-    place-items:center;
-
-    color:var(--brown);
-
-    font-family:"Playfair Display";
-
-    font-weight:700;
-
-    font-size:17px;
-
-    border-radius:4px;
-}
-
-.logo-text strong{
+.logo small{
     display:block;
-
-    font-family:"Playfair Display";
-
-    color:var(--charcoal);
-
-    font-size:18px;
+    font-family:var(--sans);
+    font-size:8px;
+    letter-spacing:4px;
+    color:#d8c5aa;
+    margin-top:-2px;
 }
-
-.logo-text span{
-    display:block;
-
-    color:var(--brown);
-
-    font-size:9px;
-
-    letter-spacing:2px;
-
-    text-transform:uppercase;
-
-    margin-top:2px;
-}
-
-
-/* NAV LINKS */
 
 .nav-links{
     display:flex;
+    gap:31px;
     align-items:center;
-    gap:30px;
 }
 
 .nav-links a{
-    position:relative;
-
+    color:#fff;
     font-size:13px;
-
-    font-weight:600;
-
-    color:var(--charcoal);
+    font-weight:500;
+    position:relative;
 }
 
-.nav-links a:not(.nav-cta)::after{
+.nav-links a:after{
     content:"";
-
     position:absolute;
-
+    bottom:-7px;
     left:0;
-    bottom:-8px;
-
     width:0;
     height:1px;
-
-    background:var(--brown);
-
-    transition:.3s ease;
+    background:var(--gold);
+    transition:.3s;
 }
 
-.nav-links a:hover::after{
+.nav-links a:hover:after{
     width:100%;
 }
 
 .nav-cta{
-    min-height:45px;
-    padding:0 20px;
-}
-
-
-/* MENU */
-
-.menu-toggle{
-    display:none;
-
-    width:45px;
-    height:45px;
-
-    background:white;
-
-    border:1px solid var(--border);
-
-    border-radius:7px;
-
-    cursor:pointer;
-}
-
-.menu-toggle span{
-    width:20px;
-    height:2px;
-
-    display:block;
-
-    background:var(--charcoal);
-
-    margin:4px auto;
-
+    padding:12px 19px;
+    border:1px solid rgba(255,255,255,.45);
+    border-radius:50px;
+    color:#fff;
+    font-size:12px;
     transition:.3s;
 }
 
+.nav-cta:hover{
+    background:#fff;
+    color:var(--dark);
+}
+
+.menu-btn{
+    width:42px;
+    height:42px;
+    display:none;
+    border:1px solid rgba(255,255,255,.3);
+    background:transparent;
+    border-radius:50%;
+    cursor:pointer;
+}
+
+.menu-btn span{
+    width:18px;
+    height:1px;
+    background:#fff;
+    display:block;
+    margin:4px auto;
+}
 
 /* =========================================================
    HERO
 ========================================================= */
 
 .hero{
-
-    min-height:790px;
-
-    display:flex;
-    align-items:center;
-
-    position:relative;
-
-    overflow:hidden;
-
+    min-height:100vh;
     background:
-        linear-gradient(
-            90deg,
-            rgba(22,20,17,.91) 0%,
-            rgba(22,20,17,.72) 43%,
-            rgba(22,20,17,.20) 82%
-        ),
-
+        linear-gradient(90deg,rgba(10,9,8,.82),rgba(10,9,8,.30)),
         url("https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2200&q=90")
         center/cover;
+    display:flex;
+    align-items:center;
+    color:#fff;
 }
 
 .hero-content{
-    max-width:760px;
-
-    padding:100px 0;
-
-    color:white;
+    max-width:850px;
+    padding-top:80px;
 }
 
-.hero .kicker{
-    color:#d5b78d;
+.hero-tag{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-transform:uppercase;
+    letter-spacing:4px;
+    font-size:11px;
+    color:#dbc29e;
+    margin-bottom:25px;
 }
 
-.hero .kicker::before{
-    background:#d5b78d;
+.hero-tag:before{
+    content:"";
+    width:40px;
+    height:1px;
+    background:var(--gold);
 }
 
 .hero h1{
-
-    color:white;
-
-    font-size:
-        clamp(54px,7vw,92px);
-
-    line-height:.98;
-
-    letter-spacing:-3px;
-
-    max-width:850px;
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:clamp(50px,7vw,96px);
+    line-height:.99;
+    letter-spacing:-2px;
 }
 
-.hero h1 span{
-    color:#d2b488;
+.hero h1 em{
+    color:#d3b58b;
+    font-style:italic;
 }
 
-.hero p{
-
-    max-width:650px;
-
-    color:#ddd6ca;
-
-    font-size:17px;
-
-    margin:27px 0 34px;
+.hero-text{
+    max-width:570px;
+    color:rgba(255,255,255,.76);
+    line-height:1.8;
+    font-size:15px;
+    margin:30px 0;
 }
 
-.hero-actions{
+.hero-buttons{
     display:flex;
-    gap:14px;
+    gap:13px;
     flex-wrap:wrap;
 }
 
-.hero-stats{
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:51px;
+    padding:0 25px;
+    border-radius:50px;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:.5px;
+    transition:.3s ease;
+    cursor:pointer;
+}
 
+.btn-primary{
+    background:#d1b186;
+    color:#181612;
+}
+
+.btn-primary:hover{
+    background:#fff;
+}
+
+.btn-outline{
+    border:1px solid rgba(255,255,255,.45);
+    color:#fff;
+}
+
+.btn-outline:hover{
+    background:#fff;
+    color:var(--dark);
+}
+
+.hero-bottom{
+    position:absolute;
+    bottom:35px;
+    left:0;
+    width:100%;
+}
+
+.hero-meta{
     display:flex;
-
-    gap:40px;
-
-    margin-top:50px;
-
-    flex-wrap:wrap;
-}
-
-.hero-stat strong{
-    display:block;
-
-    color:white;
-
-    font-family:"Playfair Display";
-
-    font-size:26px;
-}
-
-.hero-stat span{
+    justify-content:space-between;
+    align-items:center;
+    color:rgba(255,255,255,.7);
     font-size:11px;
-
-    color:#bdb5aa;
-
     text-transform:uppercase;
-
-    letter-spacing:1px;
+    letter-spacing:2px;
 }
 
+.scroll-line{
+    width:70px;
+    height:1px;
+    background:rgba(255,255,255,.3);
+    position:relative;
+}
+
+.scroll-line:after{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    height:100%;
+    width:30%;
+    background:#fff;
+    animation:scrollline 2s infinite;
+}
+
+@keyframes scrollline{
+    0%{left:0}
+    100%{left:70%}
+}
 
 /* =========================================================
-   INTRO
+   SECTION COMMON
 ========================================================= */
 
-.intro{
-    margin-top:-55px;
-
-    position:relative;
-
-    z-index:5;
+.section{
+    padding:120px 0;
 }
 
-.intro-card{
-
-    background:white;
-
-    box-shadow:var(--shadow);
-
-    border:1px solid var(--border);
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    border-radius:5px;
-
-    overflow:hidden;
+.section-header{
+    max-width:730px;
+    margin-bottom:60px;
 }
 
-.intro-item{
-
-    padding:30px 27px;
-
-    border-right:1px solid var(--border);
-
-    display:flex;
-
-    gap:15px;
-
-    align-items:center;
-}
-
-.intro-item:last-child{
-    border-right:none;
-}
-
-.intro-icon{
-
-    width:45px;
-    height:45px;
-
-    border-radius:50%;
-
-    display:grid;
-    place-items:center;
-
+.eyebrow{
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:10px;
     color:var(--brown);
-
-    background:var(--cream);
-
-    flex-shrink:0;
+    font-weight:700;
+    margin-bottom:15px;
 }
 
-.intro-item strong{
-    display:block;
-
-    color:var(--charcoal);
-
-    font-size:13px;
+.section-title{
+    font-family:var(--serif);
+    font-size:clamp(40px,5vw,67px);
+    line-height:1.05;
+    font-weight:500;
+    color:var(--dark);
 }
 
-.intro-item span{
-    font-size:11px;
+.section-title em{
+    color:var(--brown);
+    font-style:italic;
+}
 
+.section-description{
+    margin-top:20px;
+    max-width:620px;
     color:var(--muted);
+    line-height:1.8;
+    font-size:15px;
 }
-
 
 /* =========================================================
    ABOUT
 ========================================================= */
 
+.about{
+    background:var(--cream);
+}
+
 .about-grid{
-
     display:grid;
-
-    grid-template-columns:
-        .95fr 1.05fr;
-
-    gap:90px;
-
+    grid-template-columns:1fr 1.05fr;
+    gap:80px;
     align-items:center;
 }
 
-.about-images{
+.about-image{
+    height:640px;
     position:relative;
+    overflow:hidden;
 }
 
-.about-main{
-
-    height:620px;
-
+.about-image img{
+    height:100%;
     object-fit:cover;
-
-    border-radius:4px;
+    transition:1s;
 }
 
-.about-small{
+.about-image:hover img{
+    transform:scale(1.04);
+}
 
+.about-badge{
     position:absolute;
+    right:-1px;
+    bottom:0;
+    background:var(--dark);
+    color:#fff;
+    width:185px;
+    padding:30px;
+}
 
-    width:230px;
+.about-badge strong{
+    display:block;
+    font-family:var(--serif);
+    font-size:43px;
+    color:#d2b48a;
+}
 
-    height:260px;
-
-    object-fit:cover;
-
-    right:-35px;
-
-    bottom:-40px;
-
-    border:12px solid var(--cream-light);
+.about-badge span{
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    color:#aaa;
 }
 
 .about-copy p{
-    margin-top:20px;
+    color:var(--muted);
+    line-height:1.9;
+    margin:25px 0;
 }
 
-.about-points{
-
+.about-list{
     display:grid;
-
-    gap:14px;
-
-    margin:30px 0 34px;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    margin:30px 0;
 }
 
-.about-point{
-
+.about-list div{
     display:flex;
-
-    gap:12px;
-
-    align-items:center;
-
-    color:var(--charcoal);
-
+    gap:10px;
     font-size:13px;
-
-    font-weight:600;
 }
 
-.about-point i{
-    color:var(--brown);
+.about-list span{
+    color:var(--gold);
 }
-
 
 /* =========================================================
    SERVICES
 ========================================================= */
 
 .services{
-    background:#ebe4d9;
+    background:#eeeae2;
 }
 
 .services-grid{
-
     display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:20px;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--line);
 }
 
 .service-card{
-
-    background:var(--cream-light);
-
-    padding:36px;
-
+    background:#f5f2eb;
+    padding:42px 34px;
     min-height:290px;
-
-    border:1px solid rgba(99,74,52,.12);
-
+    transition:.4s ease;
     position:relative;
-
-    transition:.35s ease;
-
-    overflow:hidden;
-}
-
-.service-card::before{
-
-    content:"";
-
-    position:absolute;
-
-    left:0;
-    top:0;
-
-    width:100%;
-    height:3px;
-
-    background:var(--brown);
-
-    transform:scaleX(0);
-
-    transform-origin:left;
-
-    transition:.35s ease;
 }
 
 .service-card:hover{
-
-    transform:translateY(-9px);
-
-    box-shadow:var(--shadow);
-}
-
-.service-card:hover::before{
-    transform:scaleX(1);
+    background:var(--dark);
+    color:#fff;
+    transform:translateY(-5px);
 }
 
 .service-number{
-
-    font-family:"Playfair Display";
-
-    font-size:14px;
-
-    color:var(--brown);
-
-    margin-bottom:30px;
+    font-size:11px;
+    color:var(--gold);
+    letter-spacing:2px;
 }
 
 .service-icon{
-
-    width:50px;
-    height:50px;
-
-    display:grid;
-    place-items:center;
-
-    background:#e8dfd2;
-
-    color:var(--brown);
-
-    border-radius:50%;
-
-    margin-bottom:23px;
+    font-size:27px;
+    margin:28px 0 22px;
 }
 
 .service-card h3{
-   
-```
+    font-family:var(--serif);
+    font-size:27px;
+    font-weight:500;
+}
+
+.service-card p{
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.8;
+    margin-top:12px;
+}
+
+.service-card:hover p{
+    color:#aaa;
+}
+
+/* =========================================================
+   PORTFOLIO
+========================================================= */
+
+.portfolio{
+    background:var(--dark);
+    color:#fff;
+}
+
+.portfolio .section-title{
+    color:#fff;
+}
+
+.portfolio .eyebrow{
+    color:#c9a97b;
+}
+
+.portfolio .section-description{
+    color:#aaa;
+}
+
+.portfolio-grid{
+    display:grid;
+    grid-template-columns:1.2fr .8fr .8fr;
+    grid-template-rows:300px 300px;
+    gap:16px;
+}
+
+.project{
+    position:relative;
+    overflow:hidden;
+}
+
+.project:first-child{
+    grid-row:span 2;
+}
+
+.project img{
+    height:100%;
+    object-fit:cover;
+    transition:.7s ease;
+}
+
+.project:hover img{
+    transform:scale(1.06);
+}
+
+.project-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(transparent 45%,rgba(0,0,0,.85));
+    display:flex;
+    align-items:flex-end;
+    padding:27px;
+}
+
+.project-overlay span{
+    color:#cdb28a;
+    font-size:9px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.project-overlay h3{
+    font-family:var(--serif);
+    font-size:26px;
+    font-weight:500;
+    margin-top:4px;
+}
+
+/* =========================================================
+   FURNITURE
+========================================================= */
+
+.furniture{
+    background:var(--cream);
+}
+
+.furniture-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.furniture-card{
+    position:relative;
+    overflow:hidden;
+    background:#e8e2d8;
+}
+
+.furniture-card img{
+    aspect-ratio:4/5;
+    object-fit:cover;
+    transition:.6s;
+}
+
+.furniture-card:hover img{
+    transform:scale(1.06);
+}
+
+.furniture-info{
+    padding:20px;
+    background:#fff;
+}
+
+.furniture-info h3{
+    font-family:var(--serif);
+    font-size:22px;
+    font-weight:500;
+}
+
+.furniture-info p{
+    color:var(--muted);
+    font-size:12px;
+    margin-top:6px;
+}
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats{
+    background:#d8d0c2;
+    padding:70px 0;
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+}
+
+.stat{
+    text-align:center;
+    border-right:1px solid rgba(0,0,0,.15);
+}
+
+.stat:last-child{
+    border-right:0;
+}
+
+.stat strong{
+    font-family:var(--serif);
+    font-size:50px;
+    font-weight:500;
+}
+
+.stat span{
+    display:block;
+    color:#68625a;
+    font-size:10px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-top:6px;
+}
+
+/* =========================================================
+   PROCESS
+========================================================= */
+
+.process{
+    background:#f7f4ee;
+}
+
+.process-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.process-card{
+    padding:30px 0;
+    border-top:1px solid var(--line);
+}
+
+.process-number{
+    color:var(--gold);
+    font-size:11px;
+    letter-spacing:2px;
+}
+
+.process-card h3{
+    font-family:var(--serif);
+    font-size:25px;
+    font-weight:500;
+    margin:30px 0 13px;
+}
+
+.process-card p{
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.8;
+}
+
+/* =========================================================
+   WHY US
+========================================================= */
+
+.why{
+    background:#e9e4db;
+}
+
+.why-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:80px;
+    align-items:center;
+}
+
+.why-image{
+    height:620px;
+}
+
+.why-image img{
+    height:100%;
+    object-fit:cover;
+}
+
+.feature{
+    display:grid;
+    grid-template-columns:55px 1fr;
+    gap:20px;
+    padding:25px 0;
+    border-bottom:1px solid var(--line);
+}
+
+.feature-icon{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    border:1px solid var(--gold);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--gold);
+}
+
+.feature h3{
+    font-family:var(--serif);
+    font-size:22px;
+    font-weight:500;
+}
+
+.feature p{
+    margin-top:7px;
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.7;
+}
+
+/* =========================================================
+   TESTIMONIALS
+========================================================= */
+
+.testimonials{
+    background:var(--dark);
+    color:#fff;
+}
+
+.testimonials .section-title{
+    color:#fff;
+}
+
+.testimonial-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.testimonial{
+    border:1px solid rgba(255,255,255,.12);
+    padding:35px;
+}
+
+.stars{
+    color:#d0ad78;
+    letter-spacing:4px;
+    margin-bottom:25px;
+}
+
+.testimonial p{
+    color:#c0bdb7;
+    font-family:var(--serif);
+    font-size:19px;
+    line-height:1.65;
+}
+
+.client{
+    margin-top:25px;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    color:#888;
+}
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+.faq{
+    background:var(--cream);
+}
+
+.faq-wrapper{
+    max-width:900px;
+}
+
+.faq-item{
+    border-top:1px solid var(--line);
+}
+
+.faq-question{
+    width:100%;
+    padding:25px 0;
+    border:0;
+    background:none;
+    text-align:left;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    cursor:pointer;
+    font-family:var(--serif);
+    font-size:22px;
+    color:var(--dark);
+}
+
+.faq-question span:last-child{
+    font-family:var(--sans);
+    font-size:25px;
+    font-weight:300;
+}
+
+.faq-answer{
+    max-height:0;
+    overflow:hidden;
+    transition:.4s ease;
+}
+
+.faq-answer p{
+    padding:0 50px 25px 0;
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.8;
+}
+
+.faq-item.active .faq-answer{
+    max-height:180px;
+}
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact{
+    background:
+        linear-gradient(90deg,rgba(20,18,15,.93),rgba(20,18,15,.72)),
+        url("https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=2200&q=90")
+        center/cover fixed;
+    color:#fff;
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:90px;
+    align-items:start;
+}
+
+.contact .section-title{
+    color:#fff;
+}
+
+.contact .section-description{
+    color:#aaa;
+}
+
+.contact-details{
+    margin-top:35px;
+}
+
+.contact-detail{
+    margin-bottom:25px;
+}
+
+.contact-detail span{
+    display:block;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    font-size:9px;
+    color:#a88b65;
+    margin-bottom:7px;
+}
+
+.contact-detail a,
+.contact-detail p{
+    color:#fff;
+    font-size:16px;
+}
+
+.contact-form{
+    background:rgba(255,255,255,.07);
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,.15);
+    padding:35px;
+}
+
+.form-group{
+    margin-bottom:18px;
+}
+
+.form-group label{
+    display:block;
+    font-size:10px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:#aaa;
+    margin-bottom:7px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select{
+    width:100%;
+    border:0;
+    border-bottom:1px solid rgba(255,255,255,.25);
+    background:transparent;
+    color:#fff;
+    padding:13px 0;
+    outline:none;
+    font-size:14px;
+}
+
+.form-group select option{
+    color:#000;
+}
+
+.form-group textarea{
+    min-height:100px;
+    resize:vertical;
+}
+
+.form-btn{
+    border:0;
+    width:100%;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    background:#11100f;
+    color:#aaa;
+    padding:65px 0 25px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:1.5fr 1fr 1fr 1fr;
+    gap:50px;
+    padding-bottom:50px;
+}
+
+.footer-logo{
+    font-family:var(--serif);
+    color:#fff;
+    font-size:30px;
+}
+
+.footer-about{
+    max-width:300px;
+    line-height:1.8;
+    font-size:13px;
+    margin-top:15px;
+}
+
+footer h4{
+    color:#fff;
+    font-size:11px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:20px;
+}
+
+.footer-links a{
+    display:block;
+    margin-bottom:12px;
+    font-size:13px;
+    transition:.3s;
+}
+
+.footer-links a:hover{
+    color:#d0ae7d;
+    transform:translateX(4px);
+}
+
+.footer-bottom{
+    border-top:1px solid rgba(255,255,255,.1);
+    padding-top:25px;
+    display:flex;
+    justify-content:space-between;
+    font-size:11px;
+}
+
+/* =========================================================
+   FLOATING BUTTONS
+========================================================= */
+
+.floating-actions{
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    z-index:1200;
+    display:flex;
+    flex-direction:column;
+    gap:11px;
+}
+
+.float-btn{
+    width:57px;
+    height:57px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    box-shadow:0 12px 30px rgba(0,0,0,.25);
+    transition:.25s;
+    position:relative;
+}
+
+.float-btn:hover{
+    transform:scale(1.08);
+}
+
+.float-btn svg{
+    width:25px;
+    height:25px;
+}
+
+.whatsapp{
+    background:#1eae60;
+}
+
+.call{
+    background:#252525;
+}
+
+.tooltip{
+    position:absolute;
+    right:68px;
+    white-space:nowrap;
+    background:#171614;
+    color:#fff;
+    padding:8px 12px;
+    border-radius:5px;
+    font-size:10px;
+    opacity:0;
+    pointer-events:none;
+    transform:translateX(10px);
+    transition:.25s;
+}
+
+.float-btn:hover .tooltip{
+    opacity:1;
+    transform:translateX(0);
+}
+
+/* =========================================================
+   REVEAL ANIMATIONS
+========================================================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(45px);
+    transition:
+        opacity .8s ease,
+        transform .8s cubic-bezier(.22,.61,.36,1);
+}
+
+.reveal-left{
+    opacity:0;
+    transform:translateX(-50px);
+    transition:.9s cubic-bezier(.22,.61,.36,1);
+}
+
+.reveal-right{
+    opacity:0;
+    transform:translateX(50px);
+    transition:.9s cubic-bezier(.22,.61,.36,1);
+}
+
+.reveal.visible,
+.reveal-left.visible,
+.reveal-right.visible{
+    opacity:1;
+    transform:translate(0);
+}
+
+.delay-1{transition-delay:.1s}
+.delay-2{transition-delay:.2s}
+.delay-3{transition-delay:.3s}
+.delay-4{transition-delay:.4s}
+
+/* =========================================================
+   MAGNETIC
+========================================================= */
+
+.magnetic{
+    transition:transform .15s ease;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1000px){
+
+    .nav-links{
+        position:fixed;
+        top:0;
+        right:-100%;
+        width:78%;
+        height:100vh;
+        background:#171614;
+        flex-direction:column;
+        justify-content:center;
+        gap:25px;
+        transition:.4s;
+    }
+
+    .nav-links.active{
+        right:0;
+    }
+
+    .nav-links a{
+        font-size:17px;
+    }
+
+    .nav-cta{
+        display:none;
+    }
+
+    .menu-btn{
+        display:block;
+        position:relative;
+        z-index:1001;
+    }
+
+    .about-grid,
+    .why-grid,
+    .contact-grid{
+        grid-template-columns:1fr;
+        gap:45px;
+    }
+
+    .services-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .portfolio-grid{
+        grid-template-columns:1fr 1fr;
+        grid-template-rows:300px 250px 250px;
+    }
+
+    .project:first-child{
+        grid-row:auto;
+        grid-column:span 2;
+    }
+
+    .furniture-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .process-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .testimonial-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:650px){
+
+    .section{
+        padding:80px 0;
+    }
+
+    .hero{
+        min-height:850px;
+    }
+
+    .hero h1{
+        font-size:50px;
+        letter-spacing:-1px;
+    }
+
+    .hero-bottom{
+        bottom:20px;
+    }
+
+    .hero-meta{
+        font-size:8px;
+    }
+
+    .about-image,
+    .why-image{
+        height:450px;
+    }
+
+    .services-grid,
+    .furniture-grid,
+    .process-grid{
+        grid-template-columns:1fr;
+    }
+
+    .portfolio-grid{
+        display:grid;
+        grid-template-columns:1fr;
+        grid-template-rows:auto;
+    }
+
+    .project,
+    .project:first-child{
+        grid-column:auto;
+        grid-row:auto;
+        height:350px;
+    }
+
+    .stats-grid{
+        grid-template-columns:1fr 1fr;
+        gap:35px 0;
+    }
+
+    .stat:nth-child(2){
+        border-right:0;
+    }
+
+    .stat strong{
+        font-size:40px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .contact-form{
+        padding:25px;
+    }
+
+    .floating-actions{
+        right:15px;
+        bottom:15px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ======================================================
+     PRELOADER
+====================================================== -->
+
+<div class="preloader">
+    <div class="loader-logo">
+        <span>LR</span>
+        <div class="loader-line"></div>
+        <small>FURNITURE & INTERIORS</small>
+    </div>
+</div>
+
+
+<!-- ======================================================
+     NAVBAR
+====================================================== -->
+
+<header class="navbar" id="navbar">
+
+    <div class="container nav-inner">
+
+        <a href="#home" class="logo">
+            LR
+            <small>FURNITURE & INTERIORS</small>
+        </a>
+
+        <nav class="nav-links" id="navLinks">
+
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#portfolio">Projects</a>
+            <a href="#furniture">Furniture</a>
+            <a href="#process">Process</a>
+            <a href="#contact">Contact</a>
+
+        </nav>
+
+        <a href="#contact" class="nav-cta magnetic">
+            Start A Project
+        </a>
+
+        <button class="menu-btn" id="menuBtn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- ======================================================
+     HERO
+====================================================== -->
+
+<section class="hero" id="home">
+
+    <div class="container">
+
+        <div class="hero-content reveal">
+
+            <div class="hero-tag">
+                Interior Architecture · Furniture · Styling
+            </div>
+
+            <h1>
+                Spaces made<br>
+                <em>beautifully.</em>
+            </h1>
+
+            <p class="hero-text">
+                LR Furniture & Interiors creates refined spaces where
+                thoughtful design, premium materials and custom furniture
+                come together to make your home feel truly yours.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#portfolio"
+                   class="btn btn-primary magnetic">
+                    Explore Our Work
+                </a>
+
+                <a href="#contact"
+                   class="btn btn-outline magnetic">
+                    Discuss Your Space
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="hero-bottom">
+
+        <div class="container hero-meta">
+
+            <span>Residential · Commercial · Custom Furniture</span>
+
+            <div class="scroll-line"></div>
+
+            <span>Scroll to explore</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     ABOUT
+====================================================== -->
+
+<section class="section about" id="about">
+
+    <div class="container about-grid">
+
+        <div class="about-image reveal-left">
+
+            <img
+            src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1400&q=90"
+            alt="Luxury interior design">
+
+            <div class="about-badge">
+                <strong>01</strong>
+                <span>Designed around you</span>
+            </div>
+
+        </div>
+
+        <div class="about-copy reveal-right">
+
+            <div class="eyebrow">About LR</div>
+
+            <h2 class="section-title">
+                Interior design with a
+                <em>personal point of view.</em>
+            </h2>
+
+            <p>
+                At LR Furniture & Interiors, we believe a beautiful interior
+                should do more than look impressive. It should feel natural,
+                functional and deeply connected to the people who live in it.
+            </p>
+
+            <p>
+                From complete residential interiors to custom furniture,
+                every project is developed with attention to proportion,
+                materials, lighting, functionality and detail.
+            </p>
+
+            <div class="about-list">
+
+                <div>
+                    <span>✓</span>
+                    Bespoke Design
+                </div>
+
+                <div>
+                    <span>✓</span>
+                    Premium Materials
+                </div>
+
+                <div>
+                    <span>✓</span>
+                    Space Planning
+                </div>
+
+                <div>
+                    <span>✓</span>
+                    Custom Furniture
+                </div>
+
+            </div>
+
+            <a href="#contact"
+               class="btn btn-primary magnetic">
+                Work With Us
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     SERVICES
+====================================================== -->
+
+<section class="section services" id="services">
+
+    <div class="container">
+
+        <div class="section-header reveal">
+
+            <div class="eyebrow">What We Do</div>
+
+            <h2 class="section-title">
+                Complete interiors,
+                <em>thoughtfully designed.</em>
+            </h2>
+
+            <p class="section-description">
+                From the first concept to the smallest finishing detail,
+                we bring together design, furniture and execution to create
+                cohesive spaces.
+            </p>
+
+        </div>
+
+
+        <div class="services-grid">
+
+            <article class="service-card reveal delay-1">
+
+                <div class="service-number">01</div>
+
+                <div class="service-icon">⌂</div>
+
+                <h3>Residential Interiors</h3>
+
+                <p>
+                    Complete home interiors designed around your lifestyle,
+                    personality and everyday needs.
+                </p>
+
+            </article>
+
+
+            <article class="service-card reveal delay-2">
+
+                <div class="service-number">02</div>
+
+                <div class="service-icon">▱</div>
+
+                <h3>Modular Kitchens</h3>
+
+                <p>
+                    Functional kitchen spaces combining intelligent storage,
+                    refined finishes and modern aesthetics.
+                </p>
+
+            </article>
+
+
+            <article class="service-card reveal delay-3">
+
+                <div class="service-number">03</div>
+
+                <div class="service-icon">◇</div>
+
+                <h3>Living Spaces</h3>
+
+                <p>
+                    Sophisticated living rooms with custom furniture,
+                    lighting and carefully layered materials.
+                </p>
+
+            </article>
+
+
+            <article class="service-card reveal delay-1">
+
+                <div class="service-number">04</div>
+
+                <div class="service-icon">▤</div>
+
+                <h3>Bedroom Interiors</h3>
+
+                <p>
+                    Calm, comfortable bedrooms designed for relaxation,
+                    storage and timeless visual appeal.
+                </p>
+
+            </article>
+
+
+            <article class="service-card reveal delay-2">
+
+                <div class="service-number">05</div>
+
+                <div class="service-icon">◫</div>
+
+                <h3>Custom Furniture</h3>
+
+                <p>
+                    Bespoke furniture pieces developed specifically for
+                    your room, dimensions and design language.
+                </p>
+
+            </article>
+
+
+            <article class="service-card reveal delay-3">
+
+                <div class="service-number">06</div>
+
+                <div class="service-icon">✦</div>
+
+                <h3>Interior Styling</h3>
+
+                <p>
+                    Final styling, lighting, décor and material detailing
+                    that brings the entire space together.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     PORTFOLIO
+====================================================== -->
+
+<section class="section portfolio" id="portfolio">
+
+    <div class="container">
+
+        <div class="section-header reveal">
+
+            <div class="eyebrow">Selected Projects</div>
+
+            <h2 class="section-title">
+                Spaces with a
+                <em>distinct character.</em>
+            </h2>
+
+            <p class="section-description">
+                A selection of interior concepts inspired by modern
+                architecture, natural materials and timeless furniture.
+            </p>
+
+        </div>
+
+
+        <div class="portfolio-grid">
+
+            <div class="project reveal">
+
+                <img
+                src="https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=1400&q=90"
+                alt="Luxury living room">
+
+                <div class="project-overlay">
+
+                    <div>
+                        <span>Residential</span>
+                        <h3>Contemporary Residence</h3>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="project reveal delay-1">
+
+                <img
+                src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=90"
+                alt="Modern interior">
+
+                <div class="project-overlay">
+
+                    <div>
+                        <span>Living Room</span>
+                        <h3>Warm Minimalism</h3>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="project reveal delay-2">
+
+                <img
+                src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=90"
+                alt="Designer bedroom">
+
+                <div class="project-overlay">
+
+                    <div>
+                        <span>Bedroom</span>
+                        <h3>Quiet Luxury</h3>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="project reveal delay-2">
+
+                <img
+                src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=90"
+                alt="Modern house interior">
+
+                <div class="project-overlay">
+
+                    <div>
+                        <span>Architecture</span>
+                        <h3>Modern Residence</h3>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="project reveal delay-3">
+
+                <img
+                src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=90"
+                alt="Luxury dining interior">
+
+                <div class="project-overlay">
+
+                    <div>
+                        <span>Dining</span>
+                        <h3>Modern Dining</h3>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     FURNITURE
+====================================================== -->
+
+<section class="section furniture" id="furniture">
+
+    <div class="container">
+
+        <div class="section-header reveal">
+
+            <div class="eyebrow">Furniture Collection</div>
+
+            <h2 class="section-title">
+                Made for your
+                <em>space.</em>
+            </h2>
+
+            <p class="section-description">
+                Furniture designed to complement your architecture,
+                proportions and lifestyle.
+            </p>
+
+        </div>
+
+
+        <div class="furniture-grid">
+
+            <div class="furniture-card reveal">
+
+                <img
+                src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=90"
+                alt="Designer sofa">
+
+                <div class="furniture-info">
+                    <h3>Statement Sofas</h3>
+                    <p>Comfort · Form · Texture</p>
+                </div>
+
+            </div>
+
+
+            <div class="furniture-card reveal delay-1">
+
+                <img
+                src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=900&q=90"
+                alt="Modern chair">
+
+                <div class="furniture-info">
+                    <h3>Accent Chairs</h3>
+                    <p>Sculptural · Elegant · Personal</p>
+                </div>
+
+            </div>
+
+
+            <div class="furniture-card reveal delay-2">
+
+                <img
+                src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=90"
+                alt="Interior furniture">
+
+                <div class="furniture-info">
+                    <h3>Custom Cabinets</h3>
+                    <p>Storage · Detail · Precision</p>
+                </div>
+
+            </div>
+
+
+            <div class="furniture-card reveal delay-3">
+
+                <img
+                src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=900&q=90"
+                alt="Modern furniture">
+
+                <div class="furniture-info">
+                    <h3>Dining Furniture</h3>
+                    <p>Craft · Material · Character</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     STATS
+====================================================== -->
+
+<section class="stats">
+
+    <div class="container stats-grid">
+
+        <div class="stat reveal">
+            <strong class="counter" data-target="150">0</strong>
+            <span>Spaces Designed</span>
+        </div>
+
+        <div class="stat reveal delay-1">
+            <strong class="counter" data-target="12">0</strong>
+            <span>Design Categories</span>
+        </div>
+
+        <div class="stat reveal delay-2">
+            <strong class="counter" data-target="8">0</strong>
+            <span>Years Experience</span>
+        </div>
+
+        <div class="stat reveal delay-3">
+            <strong class="counter" data-target="100">0</strong>
+            <span>Custom Approach</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     PROCESS
+====================================================== -->
+
+<section class="section process" id="process">
+
+    <div class="container">
+
+        <div class="section-header reveal">
+
+            <div class="eyebrow">Our Process</div>
+
+            <h2 class="section-title">
+                From an idea to a
+                <em>finished space.</em>
+            </h2>
+
+        </div>
+
+
+        <div class="process-grid">
+
+            <div class="process-card reveal">
+
+                <span class="process-number">01 / DISCOVER</span>
+
+                <h3>Understand</h3>
+
+                <p>
+                    We begin by understanding your lifestyle, preferences,
+                    requirements, budget and the character of your space.
+                </p>
+
+            </div>
+
+
+            <div class="process-card reveal delay-1">
+
+                <span class="process-number">02 / DESIGN</span>
+
+                <h3>Visualise</h3>
+
+                <p>
+                    Concepts, layouts, materials and furniture directions
+                    are developed to create a clear design vision.
+                </p>
+
+            </div>
+
+
+            <div class="process-card reveal delay-2">
+
+                <span class="process-number">03 / CREATE</span>
+
+                <h3>Craft</h3>
+
+                <p>
+                    Selected materials and custom furniture elements are
+                    brought together with attention to every detail.
+                </p>
+
+            </div>
+
+
+            <div class="process-card reveal delay-3">
+
+                <span class="process-number">04 / DELIVER</span>
+
+                <h3>Transform</h3>
+
+                <p>
+                    The final space is installed, styled and refined until
+                    every element feels balanced and complete.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     WHY CHOOSE US
+====================================================== -->
+
+<section class="section why">
+
+    <div class="container why-grid">
+
+        <div class="why-image reveal-left">
+
+            <img
+            src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1400&q=90"
+            alt="Premium interior">
+
+        </div>
+
+
+        <div class="reveal-right">
+
+            <div class="eyebrow">Why LR</div>
+
+            <h2 class="section-title">
+                Details make the
+                <em>difference.</em>
+            </h2>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">✦</div>
+
+                <div>
+
+                    <h3>Design With Purpose</h3>
+
+                    <p>
+                        Every design decision has a reason — from circulation
+                        and storage to lighting and material selection.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">◇</div>
+
+                <div>
+
+                    <h3>Custom Furniture</h3>
+
+                    <p>
+                        Furniture can be developed around your exact room
+                        dimensions rather than forcing your room around it.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">✓</div>
+
+                <div>
+
+                    <h3>Attention To Detail</h3>
+
+                    <p>
+                        Finishes, proportions, textures and lighting are
+                        carefully considered to create a cohesive result.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">∞</div>
+
+                <div>
+
+                    <h3>Timeless Aesthetic</h3>
+
+                    <p>
+                        We focus on sophisticated interiors that remain
+                        beautiful beyond short-lived design trends.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     TESTIMONIALS
+====================================================== -->
+
+<section class="section testimonials">
+
+    <div class="container">
+
+        <div class="section-header reveal">
+
+            <div class="eyebrow">Client Experience</div>
+
+            <h2 class="section-title">
+                Designed around
+                <em>real lives.</em>
+            </h2>
+
+        </div>
+
+
+        <div class="testimonial-grid">
+
+            <div class="testimonial reveal">
+
+                <div class="stars">★★★★★</div>
+
+                <p>
+                    “The entire experience felt personal and thoughtful.
+                    The final space looks beautiful while still feeling
+                    completely practical for our family.”
+                </p>
+
+                <div class="client">
+                    Residential Client · Jaipur
+                </div>
+
+            </div>
+
+
+            <div class="testimonial reveal delay-1">
+
+                <div class="stars">★★★★★</div>
+
+                <p>
+                    “The furniture and interiors work together perfectly.
+                    We especially appreciated the attention given to small
+                    details that we would never have considered.”
+                </p>
+
+                <div class="client">
+                    Residential Client · Rajasthan
+                </div>
+
+            </div>
+
+
+            <div class="testimonial reveal delay-2">
+
+                <div class="stars">★★★★★</div>
+
+                <p>
+                    “From the initial concept to the finished installation,
+                    everything felt organised, refined and carefully
+                    considered.”
+                </p>
+
+                <div class="client">
+                    Interior Project · India
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     FAQ
+====================================================== -->
+
+<section class="section faq">
+
+    <div class="container">
+
+        <div class="section-header reveal">
+
+            <div class="eyebrow">FAQ</div>
+
+            <h2 class="section-title">
+                Questions,
+                <em>answered.</em>
+            </h2>
+
+        </div>
+
+
+        <div class="faq-wrapper">
+
+            <div class="faq-item reveal">
+
+                <button class="faq-question">
+                    <span>What type of interior projects do you take?</span>
+                    <span>+</span>
+                </button>
+
+                <div class="faq-answer">
+
+                    <p>
+                        We work on residential interiors, living rooms,
+                        bedrooms, kitchens, custom furniture and complete
+                        interior transformation projects.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="faq-item reveal">
+
+                <button class="faq-question">
+                    <span>Do you provide custom furniture?</span>
+                    <span>+</span>
+                </button>
+
+                <div class="faq-answer">
+
+                    <p>
+                        Yes. Furniture can be designed according to your
+                        space, measurements, preferred materials, finishes
+                        and overall interior concept.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="faq-item reveal">
+
+                <button class="faq-question">
+                    <span>Can you design an entire home?</span>
+                    <span>+</span>
+                </button>
+
+                <div class="faq-answer">
+
+                    <p>
+                        Yes. We can develop a complete design direction
+                        covering multiple rooms, furniture, finishes,
+                        lighting and styling.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="faq-item reveal">
+
+                <button class="faq-question">
+                    <span>How do I start a project?</span>
+                    <span>+</span>
+                </button>
+
+                <div class="faq-answer">
+
+                    <p>
+                        Simply contact us through WhatsApp or phone.
+                        Share your requirements and we can discuss your
+                        space, design expectations and next steps.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     CONTACT
+====================================================== -->
+
+<section class="section contact" id="contact">
+
+    <div class="container contact-grid">
+
+        <div class="reveal-left">
+
+            <div class="eyebrow">Let's Create</div>
+
+            <h2 class="section-title">
+                Your space deserves
+                <em>great design.</em>
+            </h2>
+
+            <p class="section-description">
+                Tell us a little about your project and let's start a
+                conversation about transforming your space.
+            </p>
+
+
+            <div class="contact-details">
+
+                <div class="contact-detail">
+
+                    <span>Call</span>
+
+                    <a href="tel:+917014389603">
+                        +91 70143 89603
+                    </a>
+
+                </div>
+
+
+                <div class="contact-detail">
+
+                    <span>WhatsApp</span>
+
+                    <a href="https://wa.me/917014389603"
+                       target="_blank">
+                        Chat with LR Furniture & Interiors
+                    </a>
+
+                </div>
+
+
+                <div class="contact-detail">
+
+                    <span>Availability</span>
+
+                    <p>
+                        Interior Design · Furniture · Consultation
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <form class="contact-form reveal-right"
+              id="contactForm">
+
+            <div class="form-group">
+
+                <label>Your Name</label>
+
+                <input
+                type="text"
+                id="name"
+                placeholder="Enter your name"
+                required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Phone Number</label>
+
+                <input
+                type="tel"
+                id="phone"
+                placeholder="Enter your phone number"
+                required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Project Type</label>
+
+                <select id="projectType">
+
+                    <option value="Residential Interior">
+                        Residential Interior
+                    </option>
+
+                    <option value="Modular Kitchen">
+                        Modular Kitchen
+                    </option>
+
+                    <option value="Custom Furniture">
+                        Custom Furniture
+                    </option>
+
+                    <option value="Bedroom Interior">
+                        Bedroom Interior
+                    </option>
+
+                    <option value="Living Room">
+                        Living Room
+                    </option>
+
+                    <option value="Complete Home">
+                        Complete Home Interior
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Tell Us About Your Project</label>
+
+                <textarea
+                id="message"
+                placeholder="Tell us about your space..."></textarea>
+
+            </div>
+
+
+            <button
+            type="submit"
+            class="btn btn-primary form-btn magnetic">
+
+                Send Enquiry on WhatsApp
+
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     FOOTER
+====================================================== -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div>
+
+                <div class="footer-logo">
+                    LR
+                </div>
+
+                <p class="footer-about">
+                    LR Furniture & Interiors creates refined interiors
+                    and custom furniture designed around the way you live.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h4>Explore</h4>
+
+                <div class="footer-links">
+
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#portfolio">Projects</a>
+                    <a href="#furniture">Furniture</a>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <h4>Services</h4>
+
+                <div class="footer-links">
+
+                    <a href="#services">Residential Interiors</a>
+                    <a href="#services">Modular Kitchens</a>
+                    <a href="#services">Custom Furniture</a>
+                    <a href="#services">Interior Styling</a>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <h4>Contact</h4>
+
+                <div class="footer-links">
+
+                    <a href="tel:+917014389603">
+                        +91 70143 89603
+                    </a>
+
+                    <a href="https://wa.me/917014389603"
+                       target="_blank">
+                        WhatsApp
+                    </a>
+
+                    <a href="#contact">
+                        Start A Project
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © <span id="year"></span> LR Furniture & Interiors.
+                All Rights Reserved.
+            </span>
+
+            <span>
+                Designed by Marwar Infotech
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- ======================================================
+     FLOATING ACTION BUTTONS
+====================================================== -->
+
+<div class="floating-actions">
+
+    <a
+    href="tel:+917014389603"
+    class="float-btn call magnetic"
+    aria-label="Call LR Furniture and Interiors">
+
+        <span class="tooltip">
+            Call Now
+        </span>
+
+        <!-- Recognizable phone icon -->
+
+        <svg viewBox="0 0 24 24"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="2"
+             stroke-linecap="round"
+             stroke-linejoin="round">
+
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2
+            19.79 19.79 0 0 1-8.63-3.07
+            19.5 19.5 0 0 1-6-6
+            19.79 19.79 0 0 1-3.07-8.67
+            A2 2 0 0 1 4.11 2h3
+            a2 2 0 0 1 2 1.72
+            12.84 12.84 0 0 0 .7 2.81
+            2 2 0 0 1-.45 2.11L8.09 9.91
+            a16 16 0 0 0 6 6l1.27-1.27
+            a2 2 0 0 1 2.11-.45
+            12.84 12.84 0 0 0 2.81.7
+            A2 2 0 0 1 22 16.92z"/>
+
+        </svg>
+
+    </a>
+
+
+    <a
+    href="https://wa.me/917014389603"
+    target="_blank"
+    class="float-btn whatsapp magnetic"
+    aria-label="WhatsApp LR Furniture and Interiors">
+
+        <span class="tooltip">
+            WhatsApp
+        </span>
+
+        <!-- Recognizable WhatsApp-style icon -->
+
+        <svg viewBox="0 0 24 24"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="1.9"
+             stroke-linecap="round"
+             stroke-linejoin="round">
+
+            <path d="M20.5 11.5a8.5 8.5 0 0 1-12.4
+            7.5L4 20l1.1-4A8.5 8.5 0 1 1 20.5 11.5z"/>
+
+            <path d="M9 8.5c.2-.4.4-.4.7-.4h.5
+            c.2 0 .4.1.5.4l.7 1.6
+            c.1.2.1.4-.1.6l-.6.7
+            c.7 1.2 1.6 2 2.9 2.5l.7-.6
+            c.2-.2.4-.2.6-.1l1.5.7
+            c.3.1.4.3.3.5.5
+            .1.4-.1 1.1-.4 1.4
+            -.4.4-1 .5-1.5.4
+            -2.2-.5-4-1.7-5.2-3.4
+            -.8-1.1-1.4-2.5-1.4-3.2
+            0-.5.2-1 .5-1.4z"/>
+
+        </svg>
+
+    </a>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   PRELOADER
+========================================================= */
+
+window.addEventListener("load", () => {
+
+    setTimeout(() => {
+
+        document.querySelector(".preloader")
+            .classList.add("hide");
+
+    }, 700);
+
+});
+
+
+/* =========================================================
+   NAVBAR SCROLL
+========================================================= */
+
+const navbar = document.getElementById("navbar");
+
+window.addEventListener("scroll", () => {
+
+    if(window.scrollY > 50){
+
+        navbar.classList.add("scrolled");
+
+    }else{
+
+        navbar.classList.remove("scrolled");
+
+    }
+
+});
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+
+    navLinks.classList.toggle("active");
+
+});
+
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navLinks.classList.remove("active");
+
+    });
+
+});
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealElements =
+document.querySelectorAll(
+    ".reveal, .reveal-left, .reveal-right"
+);
+
+const revealObserver = new IntersectionObserver(
+
+    entries => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("visible");
+
+                revealObserver.unobserve(entry.target);
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold:.12
+    }
+
+);
+
+
+revealElements.forEach(element => {
+
+    revealObserver.observe(element);
+
+});
+
+
+/* =========================================================
+   MAGNETIC BUTTON EFFECT
+========================================================= */
+
+document.querySelectorAll(".magnetic").forEach(button => {
+
+    button.addEventListener("mousemove", function(e){
+
+        const rect =
+        this.getBoundingClientRect();
+
+        const x =
+        e.clientX -
+        rect.left -
+        rect.width / 2;
+
+        const y =
+        e.clientY -
+        rect.top -
+        rect.height / 2;
+
+        this.style.transform =
+        `translate(${x * .12}px, ${y * .12}px)`;
+
+    });
+
+
+    button.addEventListener("mouseleave", function(){
+
+        this.style.transform =
+        "translate(0,0)";
+
+    });
+
+});
+
+
+/* =========================================================
+   COUNTERS
+========================================================= */
+
+const counters =
+document.querySelectorAll(".counter");
+
+let countersStarted = false;
+
+const counterObserver =
+new IntersectionObserver(entries => {
+
+    if(entries[0].isIntersecting && !countersStarted){
+
+        countersStarted = true;
+
+        counters.forEach(counter => {
+
+            const target =
+            parseInt(counter.dataset.target);
+
+            let current = 0;
+
+            const increment =
+            Math.max(1, Math.ceil(target / 70));
+
+            const update = () => {
+
+                current += increment;
+
+                if(current >= target){
+
+                    counter.textContent =
+                    target + (target >= 100 ? "+" : "");
+
+                    return;
+
+                }
+
+                counter.textContent = current;
+
+                requestAnimationFrame(update);
+
+            };
+
+            update();
+
+        });
+
+    }
+
+});
+
+
+if(document.querySelector(".stats")){
+
+    counterObserver.observe(
+        document.querySelector(".stats")
+    );
+
+}
+
+
+/* =========================================================
+   FAQ ACCORDION
+========================================================= */
+
+document.querySelectorAll(".faq-question")
+.forEach(question => {
+
+    question.addEventListener("click", () => {
+
+        const item =
+        question.parentElement;
+
+        const wasActive =
+        item.classList.contains("active");
+
+
+        document.querySelectorAll(".faq-item")
+        .forEach(other => {
+
+            other.classList.remove("active");
+
+            const symbol =
+            other.querySelector(
+                ".faq-question span:last-child"
+            );
+
+            symbol.textContent = "+";
+
+        });
+
+
+        if(!wasActive){
+
+            item.classList.add("active");
+
+            question.querySelector(
+                "span:last-child"
+            ).textContent = "−";
+
+        }
+
+    });
+
+});
+
+
+/* =========================================================
+   WHATSAPP CONTACT FORM
+========================================================= */
+
+const contactForm =
+document.getElementById("contactForm");
+
+contactForm.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    const name =
+    document.getElementById("name").value.trim();
+
+    const phone =
+    document.getElementById("phone").value.trim();
+
+    const project =
+    document.getElementById("projectType").value;
+
+    const message =
+    document.getElementById("message").value.trim();
+
+
+    const whatsappMessage =
+
+    `Hello LR Furniture & Interiors,
+
+I would like to discuss an interior design project.
+
+Name: ${name}
+
+Phone: ${phone}
+
+Project Type: ${project}
+
+Project Details:
+${message || "I would like to discuss my requirements."}
+
+Please let me know the next steps.`;
+
+
+    const whatsappURL =
+    "https://wa.me/917014389603?text=" +
+    encodeURIComponent(whatsappMessage);
+
+
+    window.open(
+        whatsappURL,
+        "_blank"
+    );
+
+});
+
+
+/* =========================================================
+   YEAR
+========================================================= */
+
+document.getElementById("year")
+.textContent =
+new Date().getFullYear();
+
+
+/* =========================================================
+   ACTIVE NAV SECTION
+========================================================= */
+
+const sections =
+document.querySelectorAll("section[id]");
+
+const navItems =
+document.querySelectorAll(".nav-links a");
+
+const activeObserver =
+new IntersectionObserver(
+
+    entries => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting){
+
+                navItems.forEach(link => {
+
+                    link.classList.remove("active");
+
+                    if(
+                        link.getAttribute("href") ===
+                        "#" + entry.target.id
+                    ){
+
+                        link.classList.add("active");
+
+                    }
+
+                });
+
+            }
+
+        });
+
+    },
+
+    {
+        rootMargin:"-40% 0px -50% 0px"
+    }
+
+);
+
+
+sections.forEach(section => {
+
+    activeObserver.observe(section);
+
+});
+
+
+</script>
+
+</body>
+</html>
